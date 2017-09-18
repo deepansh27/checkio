@@ -17,38 +17,47 @@
 #   There is either one winner or a draw.
 #   len(game_result) == 3
 #   all(len(row) == 3 for row in game_result)
-
 def checkio(data):
     
-    # Checking rows
-    i=0
-    while i<3:
-        line=data[i]
-        if (line=="XXX"): return "X"
-        if (line=="OOO"): return "O"
-        i+=1
+    
+    # checking for rows
+    i = 0
+    while i < 3:
+        row = data[i]
+        if row =='XXX':
+            return 'X'
+        if row =="OOO":
+            return "O"
+        i += 1
         
-    # Checking collumns
-    j=0
-    while j<3:
-        column= data[0][j] +  data[1][j] +  data[2][j]
-        if (column=="XXX"): return "X"
-        if (column=="OOO"): return "O"
-        j+=1
+    # checking for columns
+    j = 0
+    while j < 3:
+        col = data[0][j]+ data[1][j]+data[2][j]
+        if col =='XXX':
+            return 'X'
+        if col =="OOO":
+            return "O"
+        j += 1
     
-    # Checking diagonals
-    d1=data[0][0] +  data[1][1] +  data[2][2]
-    d2=data[2][0] +  data[1][1] +  data[0][2]
-    print("D1: " + d1 + " - D2: " + d2)
-    diagonals=[d1,d2]
-    k=0
-    while k<2:
-        diagonal=diagonals[k]
-        if (diagonal=="XXX"): return "X"
-        if (diagonal=="OOO"): return "O"
-        k+=1
     
-    return "D"
+    # check for diagonals
+    
+    d1 = data[0][0] + data[1][1] + data[2][2]
+    d2 = data[0][2] + data[1][1] + data[2][0]
+    
+    diagonals = [d1,d2]
+    
+    d= 0
+    while d < 2:
+        diagonal = diagonals[d]
+        if diagonal=="XXX":
+            return 'X'
+        if diagonal=="OOO":
+            return 'O'
+        d += 1
+    
+    return 'D'   
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
@@ -67,3 +76,6 @@ if __name__ == '__main__':
     assert checkio([
         "O.X",
         "XX.",
+        "XOO"]) == "X", "Xs wins again"
+    
+print("success")
