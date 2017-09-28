@@ -22,6 +22,9 @@ How it is used: Python has batteries included, so in this mission you will need 
 Precondition: Dates between 1 january 1 and 31 december 9999. Dates are correct.
 '''
 '''
+MY_SOLUTION:
+---------------
+
 def days_diff(date1, date2):
     months_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     dict_day_in_months = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
@@ -75,7 +78,7 @@ def days_diff(date1, date2):
         total_days = date1_days_left + days_in_months - date2_days_left + 365* (date2_years-date1_years)
         return total_days
 
-
+print(days_diff((2017,8,5), (2016,8,5)))
 
 
 
